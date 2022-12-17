@@ -9,7 +9,7 @@ class ProductController extends Controller
     public function index()
     {
         $viewData = [];
-        $viewData["title"] = "Products - Confecciones Abigail";
+        $viewData["title"] = "Productos - Confecciones Abigail";
         $viewData["subtitle"] = "Lista de productos";
         $viewData["products"] = Product::all();
         return view('product.index')->with("viewData", $viewData);

@@ -129,4 +129,5 @@ class User extends Authenticatable
         $this->orders = $orders;
     }
 
+
 }

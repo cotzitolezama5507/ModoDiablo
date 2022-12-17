@@ -22,6 +22,9 @@ Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.ind
 Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete");
 Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 
+Route::get('/reporte', 'App\Http\Controllers\ReporteController@index')->name("reporte.index");
+Route::get('/reporte/{id}', 'App\Http\Controllers\ReporteController@show')->name("reporte.show");
+
 Route::middleware('admin')->group(function () {
 
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
@@ -37,6 +40,8 @@ Route::middleware('auth')->group(function () {
 
 });
     
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

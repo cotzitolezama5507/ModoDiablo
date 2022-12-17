@@ -1,0 +1,25 @@
+<?php
+namespace App\Http\Controllers;
+
+use App\Models\Reporte;
+use Illuminate\Http\Request;
+class ProductController extends Controller
+{
+    public function index()
+    {
+    $viewData = [];
+    $viewData["title"] = "Reporte - Confecciones Abigail";
+    $viewData["subtitle"] = "List of Reportes";
+    $viewData["products"] = Reporte::all();
+    return view('reporte.index')->with("viewData", $viewData);
+    }
+    public function show($id)
+    {
+        $viewData = [];
+        $reporte = Reporte::findOrFail($id);
+        $viewData["title"] = $reporte->getTipo()." - Confecciones Abigail ";
+        $viewData["subtitle"] = $reporte->getTipo()." - Información de producto ";
+        $viewData["product"] = $reporte;
+        return view('reporte.show')->with("viewData", $viewData);
+    }
+}
